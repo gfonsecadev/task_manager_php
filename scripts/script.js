@@ -1,8 +1,9 @@
 function editar(tarefa,id,pagina){
-				divTarefa=document.getElementById('tarefa_'+id);
+
+				let divTarefa=document.getElementById('tarefa_'+id);
 				divTarefa.innerHTML='';
 				let form=document.createElement('form');
-				form.action='requisicao.php?acao=atualizar';
+				form.action=`${caminhoCorreto(pagina)}response.php?acao=atualizar`;
 				form.method='post';
 				form.className='row'
 
@@ -38,9 +39,17 @@ function editar(tarefa,id,pagina){
 			}
 
 			function remover(id,pagina){
-				window.location.href='requisicao.php?acao=remover&id='+id+'&pagina='+pagina;
+				window.location.href=`${caminhoCorreto(pagina)}response.php?acao=remover&id=${id}&pagina=${pagina}`;
 			}
 
 			function marcarCumprida(id,pagina){
-				window.location.href='requisicao.php?acao=marcarCumprida&id='+id+'&pagina='+pagina;
+				window.location.href=`${caminhoCorreto(pagina)}response.php?acao=marcarCumprida&id=${id}&pagina=${pagina}`;
+			}
+
+			function caminhoCorreto(caminho){
+				if(caminho=="index"){
+					return "scripts/"
+				}else{
+					return ""
+				}
 			}

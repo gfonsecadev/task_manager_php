@@ -16,9 +16,9 @@
 		$tarefa->__set('tarefa',$_POST['tarefaAtualizada']);
 		DbHelper::atualizarTarefa($tarefa);
 		if ($_POST['pagina']=='todas_tarefas') {
-			header('Location: Todas_tarefas.php');
+			header('Location: todas_tarefas.php');
 		}else{
-			header('Location: index.php');
+			header('Location:../index.php');
 		}
 
 	}else if ($acao=='recuperarTudo') {
@@ -30,9 +30,9 @@
 		$tarefa->__set('id', $_GET['id']);
 		DbHelper::deletar($tarefa);
 		if ($_GET['pagina']=='todas_tarefas') {
-			header('Location: Todas_tarefas.php');
+			header('Location:todas_tarefas.php');
 		}else{
-			header('Location: index.php');
+			header('Location:../index.php');
 		}
 	}else if ($acao=='marcarCumprida') {
 		$tarefa=new Tarefas();
@@ -41,7 +41,7 @@
 		if ($_GET['pagina']=='todas_tarefas') {
 			header('Location: Todas_tarefas.php');
 		}else{
-			header('Location: index.php');
+			header('Location:../index.php');
 		}
 		
 	}
